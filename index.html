@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <section>
+        <div class="bg"></div>
+        <header>
+            <a href="/" class="logo">Fruits</a>
+            <div class="toggle"></div>
+            <ul class="navigation">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="https://fruitguys.com/">Purchase</a></li>
+                <li><a href="https://abhinav1326.github.io/My-Gallery/">Partner</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textbox">
+                <h2>Eat Fresh Everyday</h2>
+                <p>Fruits are an excellent source of essential vitamins and minerals, and they are high in fiber.
+                    Fruits also provide a wide range of health-boosting antioxidants, including flavonoids. 
+                    Eating a diet high in fruits and vegetables can reduce a person's risk of developing heart disease, cancer, inflammation, and diabetes.</p>
+                <a href="https://www.medicalnewstoday.com/articles/324431">Learn More</a>
+            </div>
+            <div class="imgBox">
+                <img src="images/apple.png" class="fruits">
+            </div>
+        </div>
+        <ul class="thumb">
+            <li data-text="Apple" class="active"><img src="images/apple.png" onclick="imgSlider('images/apple.png');changeBgColor('#fc4a55')" alt=""></li>
+            <li data-text="Mango"><img src="images/mango.png" onclick="imgSlider('images/mango.png');changeBgColor('#ffcc02')" alt=""></li>
+            <li data-text="Pineapple"><img src="images/pineApple.png" onclick="imgSlider('images/pineApple.png');changeBgColor('#ffb42b')" alt=""></li>
+            <li data-text="Watermelon"><img src="images/watermelon.png" onclick="imgSlider('images/watermelon.png');changeBgColor('#92ba3c')" alt=""></li>
+            <li data-text="Dragonfruit"><img src="images/dragonFruits.png" onclick="imgSlider('images/dragonFruits.png');changeBgColor('#fb6cb2')" alt=""></li>
+        </ul>
+        <ul class="sci">
+            <li><a href="https://www.facebook.com"><img src="images/facebook.png" alt=""></a></li>
+            <li><a href="https://www.instagram.com/arsenic_1326/"><img src="images/instagram.png" alt=""></a></li>
+            <li><a href="https://www.twitter.com"><img src="images/twitter.png" alt=""></a></li>
+        </ul>
+    </section>
+
+    <script>
+
+        // navbar css
+        let menuToggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navigation');
+        menuToggle.onclick = function(){
+            menuToggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+
+        // change img
+        function imgSlider(anything){
+            document.querySelector('.fruits').src = anything;
+        }
+
+        // change bg color
+        function changeBgColor(color){
+            const bg = document.querySelector('.bg');
+            bg.style.background = color;
+        }
+
+        let el = document.querySelectorAll('.thumb li');
+        for (let i = 0; i < el.length; i++) {
+            el[i].onclick = function(){
+                var c = 0;
+                while (c < el.length){
+                    el[c++].className = 'check';
+                }
+                el[i].className = 'check active';
+            }
+        }
+
+    </script>
+
+</body>
+</html>
